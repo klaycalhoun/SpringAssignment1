@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+                    http://www.springframework.org/schema/util
+                    http://www.springframework.org/schema/util/spring-util-2.5.xsd">
+
+    <bean id="Student" class="org.genspark.Student">
+        <property name="ID" value="123"/>
+        <property name="Name" value="John Doe" />
+        <property name="PH">
+            <list value-type="org.genspark.Phone">
+                <bean id="Phone1" class="org.genspark.Phone">
+                    <property name="Number" value="000-000-0000"/>
+                </bean>
+
+                <bean id="Phone2" class="org.genspark.Phone">
+                    <property name="Number" value="111-111-1111"/>
+                </bean>
+
+                <bean id="Phone3" class="org.genspark.Phone">
+                    <property name="Number" value="222-222-2222"/>
+                </bean>
+            </list>
+        </property>
+        <property name="Address" ref="Address" />
+    </bean>
+
+    <bean id="Address" class="org.genspark.Address">
+        <property name="City" value="city"/>
+        <property name="State" value="state"/>
+        <property name="Country" value="country"/>
+        <property name="Zipcode" value="00000"/>
+    </bean>
+</beans>
